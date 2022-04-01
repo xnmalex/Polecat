@@ -65,7 +65,7 @@ class MainFragment : Fragment(), CatFeedAdapter.CatFeedItemListener {
             )
         )
         view.findViewById<RecyclerView>(R.id.recyclerView).adapter = adapter
-        view.findViewById<RecyclerView>(R.id.recyclerView).scrollToPosition(0)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -84,6 +84,7 @@ class MainFragment : Fragment(), CatFeedAdapter.CatFeedItemListener {
                 Resource.Status.SUCCESS -> {
                     view.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
+                    view.findViewById<RecyclerView>(R.id.recyclerView).scrollToPosition(adapter.itemCount-1)
 
                 }
                 Resource.Status.ERROR -> {
