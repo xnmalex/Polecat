@@ -20,7 +20,9 @@ class CatFeedRepository @Inject constructor(
             val catFacts = remoteDataSource.getRandomCatFacts();
             val catImage = remoteDataSource.getRandomCatImage();
 
-            localDataSource.insert(CatFeed(0, catImage.data?.url,catFacts.data?.text ))
+            catImage.data?.let{
+                localDataSource.insert(CatFeed(0, catImage.data?.url,catFacts.data?.text ))
+            }
 
             emit(Resource.success(localDataSource.getCatFeed()))
         }catch (e: Exception){
