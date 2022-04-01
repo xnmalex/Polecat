@@ -1,16 +1,14 @@
-package com.alexgui.polecat
+package com.alexgui.polecat.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import com.alexgui.polecat.model.data.CatFeed
-import com.alexgui.polecat.model.remote.Resource
-import com.alexgui.polecat.viewmodel.CatFeedViewModel
+import android.widget.Button
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.alexgui.polecat.R
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -18,43 +16,32 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
-    private val viewModel: CatFeedViewModel by viewModels()
+class IntroFragment : Fragment() {
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return inflater.inflate(R.layout.fragment_intro, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//        }
-
-
-
+        view.findViewById<Button>(R.id.button_next).setOnClickListener {
+            findNavController(this).navigate(R.id.action_IntroFragment_to_MainFragment)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        activity?.let {
-//            viewModel.catFeed.observe(it, Observer { catFeed ->
-//                appendCatFeed(catFeed.data!!.value!!)
-//
-//            })
-//        }
+        setHasOptionsMenu(true)
     }
 
-    private fun appendCatFeed(catFeed: List<CatFeed>){
-        val sb = StringBuilder()
-        for(cat in catFeed){
-            sb.append(cat.fact + "\n")
-        }
-        //text.text = sb.toString()
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
     }
 }
