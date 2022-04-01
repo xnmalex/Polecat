@@ -1,5 +1,7 @@
 package com.alexgui.polecat
 
+import com.alexgui.polecat.model.local.CatFeedDao
+import com.alexgui.polecat.model.repository.CatFeedRepository
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -14,4 +16,6 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
+
 }
