@@ -32,7 +32,6 @@ Sync Gradle (BuildGralde)
 
 - Write Unit Testing
 - Better UI enchancement
-- Put API Key in BuildConfig (Security)
 
 ## License
 
@@ -40,3 +39,9 @@ Sync Gradle (BuildGralde)
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [Polecat]: https://github.com/xnmalex/Polecat
+
+### Screenshots
+![Screenshot_1648806460](https://user-images.githubusercontent.com/5309611/161242338-27041c86-a8c8-408c-860f-cdf677ad4da6.png)
+![Screenshot_1648806468](https://user-images.githubusercontent.com/5309611/161242344-0fc14d68-e8e6-46a6-8449-c21db106a1dd.png)
+
+
